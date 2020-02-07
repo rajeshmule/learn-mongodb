@@ -1,5 +1,4 @@
-# Learn mongoDB
-##### MongoDB
+## MongoDB
 MongoDB is a No SQL database. It is an open-source, cross-platform, document-oriented database written in C++. It uses javascript as their query language.
 
 A record in MongoDB is a document, which is a data structure composed of field and value pairs. MongoDB documents are similar to JSON objects. The values of fields may include other documents, arrays, and arrays of documents.
@@ -15,7 +14,7 @@ A record in MongoDB is a document, which is a data structure composed of field a
   }
 }
 ```
-### Features of mongodb:
+#### Features of mongodb:
   - supports ad hoc queries // you can search by field, range query and it also supports regular expression searches.
   - supports indexing
   - supports replication
