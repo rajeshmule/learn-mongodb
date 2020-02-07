@@ -38,37 +38,37 @@ Mongo server can list all the databses present on local system. The structure of
   - Each document can have 1 to multiple fields.
 
 We can perform all database operations using mongo shell.
-### Shell commands
+#### Shell commands
   - db.version()
   - db.stats()
   - db.help()
 
 Few common operations are: 
-### List databases
+#### List databases
 `show dbs` lists all databases.
 
-### Create database
+#### Create database
 `use DB_NAME` // use sample creates a database sample if not present, otherwise connects to that database.
 
 To check the current databse connected to, use `db`.
 
-### Delete database
+#### Delete database
   - `use DB_NAME` command connects to that specific database.
   - `db.dropDatabase() deletes that database.
 
-### List collections in a database
+#### List collections in a database
 Suppose we want to list all collections from sample database.
   - First we connect to that database using `use sample`.
   - For a list of all collections inside sample database we use `show collections`.
   - `db.getCollectionNames()` inside a database returns same result.
 
-### Create collection
+#### Create collection
 Inside sample database
   - we can use `db.users.insert({name: 'abc'})` to create collection `users` in sample database with a single document having name field in it.
 
   - We can explicitly create a collection using `db.createCollection('users')` inside sample database.
 
-### capped collection
+#### capped collection
 Capped collection is a fixed size collecction that automatically overwrites its oldest entries when it reaches its maximum size. If you specify true, you need to specify size(in bytes) parameter also.
 `db.createCollection("posts", {capped: true, size: 4096})`
 
@@ -82,12 +82,12 @@ Capped collection is a fixed size collecction that automatically overwrites its 
 
   - The size parameter specifies the size of the capped collection in bytes.
 
-### Drop collection
+#### Drop collection
 Deletes a collection.
   - `db.COLLECTION_NAME.drop()` drops the whole collection with the contents. 
   - `db.COLLECTION_NAME.remove({})` drops all document from collection but collection remains.
 
-### Rename collection
+#### Rename collection
 Renames a collection.
 `db.COLLECTION_NAME.renameCollection(NEW_COLLECTION_NAME)` renames collection to newer collection name.  
 
@@ -95,7 +95,7 @@ Renames a collection.
 CRUD is create, read, update and delete.
 Mongodb have methods defined for creating a document, updating a record, querying a collection to fetch matched results and deleting a specific or all documents from a collection.
 
-### Create
+#### Create
 `db.COLLECTION_NAME.insert` method is used to insert a document inside a collection.
 It takes objects or arrays[for multiple inserts] with key value pair as only arguments.
 ```js
@@ -110,7 +110,7 @@ db.users.insert({name: 'suraj', email: 'abc@gmail.com'});
 
   - Other functions like `insertOne` and `insertMany` are also used. 
 
-### Read
+#### Read
 Querying a collection for specific document or multiple document uses the form `db.COLLECTION_NAME.find()` or `findOne`. It takes the query as first argument and projection as second.
 
 ```js
@@ -122,7 +122,7 @@ db.users.find({}, {name: 1, _id: 0}) // returns all document with only name fiel
 
 We will learn more about querying in next section.
 
-### Update
+#### Update
 Updating a document or multiple documents from a collection could range from a single field update to deeply nested or array updates.
 
 Update includes single field update as well as replacing a document entirely.
@@ -160,7 +160,7 @@ db.users.update({_id: 10}, {$set: {'name.last': 'singh'}});
 {_id: 10, name: {first: 'Suraj', last: 'singh'}};
 ```
 
-### Array Updates
+#### Array Updates
 $push is used to update an existing array field with new entry.
 ```js
 // Suppose we have an article document
@@ -184,7 +184,7 @@ $pop is used to remove elements from either start or end of the array.
 
 We have `updateOne` and `updateMany` methods as well.
 
-### Delete
+#### Delete
   - `db.COLLCETION_NAME.drop()` is used to drop the entire collection and its documents from the database.
 
   - `db.COLLECTION_NAME.remove()` takes query object to be removed.
